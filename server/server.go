@@ -90,7 +90,7 @@ func downloadImageFromUrl(url string){
 }
 
 func setWallpaper(imgPath string){
-	time.Sleep(5*time.Second)
+
 	var pwd bytes.Buffer
 	
 	cmd := exec.Command("pwd")
