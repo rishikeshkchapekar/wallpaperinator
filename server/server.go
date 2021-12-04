@@ -22,7 +22,15 @@ func GetImages() *data.Response{
 
 	unsplash_key := os.Getenv("UNSPLASH_API")
 
-	url := "https://api.unsplash.com/search/photos?page=1&query=star+wars&per_page=50&client_id="+unsplash_key
+	queryName := "black abstract"
+	_a := strings.Split(queryName," ")
+	if len(_a)==1{
+		queryName = _a[0]
+	}else{
+		queryName = strings.Join(_a[:], "+")
+	}
+
+	url := "https://api.unsplash.com/search/photos?page=1&query="+queryName+"&per_page=100&client_id="+unsplash_key
 	resp,err := http.Get(url)
 	if err!=nil{
 		log.Fatalf("Error occured %v",err)
